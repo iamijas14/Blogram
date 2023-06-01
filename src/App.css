@@ -1,38 +1,224 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,200;1,400&family=Pacifico&family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Header section */
+.header_body {
+    font-size: 50px;
+    margin-top: 20px;
+    font-family: 'Pacifico', cursive;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header_background {
+    display: flex;
+    justify-content: center;
+    background-color: #fecdd3;
+    background: linear-gradient(#fecdd3, white);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* create blog section */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.input_text {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    font-family: 'Raleway', sans-serif;
+    width: 50%;
+    position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.label {
+    font-size: 20px;
+}
+
+.input_text_title,
+.input_text_description,
+.input_text_content {
+    border-radius: 2px;
+    border-color: #fecdd3;
+    padding: 5px;
+    border-style: solid;
+    outline-width: 0;
+}
+
+.ql-editor {
+    height: 250px !important;
+}
+
+.char_length_indicator {
+    position: absolute;
+    bottom: -20px;
+    right: 1px;
+    font-family: 'Lato', sans-serif;
+}
+
+.create_blog_btn {
+    margin: 17px;
+    border: none;
+    font-size: 20px;
+    padding: 10px 25px;
+    border-radius: 5px;
+    background-color: #fecdd3;
+    cursor: pointer;
+}
+
+/* card section */
+.card_wrapper {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    flex-wrap: wrap;
+
+}
+
+.card_container {
+    background-color: #fecdd3;
+    margin: 30px 20px;
+    padding: 10px;
+    width: 300px;
+    height: 240px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px -5px;
+    font-family: 'Raleway', sans-serif;
+    position: relative;
+}
+
+.card_title {
+    font-size: x-large;
+    font-weight: 900;
+}
+
+.card_desc {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.card_container>hr {
+    border-color: black;
+    border-style: solid;
+}
+
+.card_content {
+    overflow-wrap: break-word;
+}
+
+.card_view_btn {
+    border: none;
+    padding: 0px 15px;
+    font-size: 17px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: none;
+    color: black;
+    transition: all 0.2s;
+}
+
+.card_view_btn:hover {
+    transform: scale(1.1);
+}
+
+/* Blog section */
+.blog_container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    overflow-y: scroll;
+}
+
+.blog_content {
+    margin-top: 30px;
+    width: 60%;
+    overflow-wrap: break-word;
+    font-family: 'Raleway', sans-serif;
+}
+
+.blog_content>h2 {
+    font-size: 40px;
+    margin-bottom: 1px;
+}
+
+.blog_content>p {
+    margin: 0;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.blog_data {
+    font-size: 17px;
+}
+
+.blog_close_btn {
+    border: none;
+    background: none;
+    font-size: 20px;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.blog_close_btn:hover {
+    transform: scale(1.2);
+}
+
+/* responsive */
+@media only screen and (max-width:600px) {
+    .input_text {
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        font-family: 'Raleway', sans-serif;
+        width: 80%;
+        position: relative;
+    }
+
+    .blog_content {
+        margin-top: 75px !important;
+        width: 80% !important;
+        overflow-wrap: break-word;
+    }
+
+    .blog_content>h2 {
+        margin-bottom: 1px;
+        text-align: center;
+        font-size: 35px;
+    }
+
+    .blog_content>p {
+        margin: 0;
+        font-weight: 700;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .blog_close_btn {
+        border: none;
+        background: none;
+        font-size: 20px;
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
 }
