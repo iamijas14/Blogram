@@ -72,6 +72,39 @@ body {
     cursor: pointer;
 }
 
+.pop_up_screen {
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+
+}
+
+.pop_up_container {
+    width: 300px;
+    text-align: center;
+    height: 100px;
+    background-color: #fecdd3;
+    border-radius: 10px;
+    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.43);
+}
+
+.btn_popup {
+    text-align: center;
+}
+
+.popup_btn {
+    text-align: center;
+    margin-left: 5px;
+    padding: 5px 10px;
+    width: 60px;
+}
+
+
+
 /* card section */
 .card_wrapper {
     display: flex;
@@ -142,6 +175,7 @@ body {
     display: flex;
     justify-content: center;
     overflow-y: scroll;
+
 }
 
 .blog_content {

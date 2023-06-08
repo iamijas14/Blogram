@@ -8,12 +8,27 @@ const CreateBlog = () => {
   const [isBlogData, setBlogData] = useState({
     title: '',
     desc: '',
-    content: ''
+    content: '',
+    isChecked: false
   })
+
   const [isMaxCharLength, setMaxCharLength] = useState(0)
 
+  const [isPopup, setPopup] = useState(false)
+
   const [{ }, dispatch] = useDatalayer()
-  console.log(blogID())
+
+  const confirmHandler = () => {
+    // isBlogData.isChecked && setPopup(!isPopup)
+    {
+      isBlogData.isChecked ? setPopup(!isPopup) : (
+        setBlogData((item) => {
+          return { ...item, title: '', desc: '', content: '', isChecked: false }
+        })
+      )
+    }
+  }
+
   const createBlogHandler = () => {
     dispatch({
       type: 'ADD_TO_BLOG',
@@ -21,11 +36,22 @@ const CreateBlog = () => {
         title: isBlogData.title,
         description: isBlogData.desc,
         content: isBlogData.content,
-        id: blogID()
+        id: blogID(),
+        isPublish: isBlogData.isChecked
       }
-    })
+    },
+    )
     setBlogData((item) => {
-      return { ...item, title: '', desc: '', content: '' }
+      return { ...item, title: '', desc: '', content: '', isChecked: false }
+    })
+
+    setPopup(!isPopup)
+  }
+
+  const cancelPopUpHandler = () => {
+    setPopup(!isPopup)
+    setBlogData((item) => {
+      return { ...item, title: '', desc: '', content: '', isChecked: false }
     })
   }
 
@@ -71,7 +97,7 @@ const CreateBlog = () => {
             theme="snow"
             value={isBlogData.content}
             onChange={(event) => {
-              extractHTMLContent(event) < 2000 && setBlogData((item) => {
+              extractHTMLContent(event) <= 2000 && setBlogData((item) => {
                 return { ...item, content: event }
               })
             }}
@@ -79,12 +105,39 @@ const CreateBlog = () => {
           <div className='char_length_indicator'>{isMaxCharLength}/2000</div>
         </div>
 
+        <div className=''>
+          <input
+            checked={isBlogData.isChecked}
+            type='checkbox'
+            onClick={(event) => setBlogData((item) => {
+              return { ...item, isChecked: event.target.checked }
+            })}
+          />
+        </div>
+
         <button
           className='create_blog_btn'
           disabled={(isBlogData.title && isBlogData.desc && isBlogData.content) === ""}
-          onClick={() => createBlogHandler()}>
+          onClick={confirmHandler}>
           Create Blog
         </button>
+
+        {
+          isPopup && (
+            <div className='pop_up_screen'>
+              <div className='pop_up_container'>
+                <p>Are you sure, you want to Publish this blog</p>
+
+                <div className='btn_popup'>
+                  <button className='popup_btn' onClick={createBlogHandler}>Yes</button>
+                  <button className='popup_btn' onClick={cancelPopUpHandler}>Cancel</button>
+                </div>
+
+              </div>
+            </div>
+          )
+        }
+
       </div>
     </>
   )
