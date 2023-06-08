@@ -4,8 +4,6 @@ import { useDatalayer } from '../DataProvider'
 const DisplayBlog = () => {
     const [{ blog }] = useDatalayer()
 
-    console.log('checkbox', blog)
-
     const [isDisplayblog, setDisplayblog] = useState(false)
     const [detailedBlog, setDetailedBlog] = useState();
 
@@ -25,33 +23,33 @@ const DisplayBlog = () => {
     return (
         <div className='card_wrapper'>
             {blog.map(({ title, description, content, id, isPublish }) => (
-                isPublish && (
-                    // {blog.map(({ title, description, content, id }, ind) => (
-                    <div className='card_container' key={id}>
+                // isPublish && (
+                // {blog.map(({ title, description, content, id }, ind) => (
+                <div className='card_container' key={id}>
 
-                        <div className='card_title'>
-                            <span>
-                                {title.slice(0, 20)}
-                            </span>
-                            {title.length > 20 && <span>
-                                ...
-                            </span>}
-                        </div>
-
-                        <div className='card_desc'>
-                            <span>{description.slice(0, 30)}</span>{description.length > 30 && <span>...</span>}
-                        </div>
-
-                        <hr />
-
-                        <div className='card_content'>
-                            <span>{extractHTMLContent(content).slice(0, 250)}</span>{extractHTMLContent(content).length > 30 && <span>...</span>}
-                        </div>
-
-                        <button className='card_view_btn' onClick={() => togglePopup(id)}>view more ⮕</button>
+                    <div className='card_title'>
+                        <span>
+                            {title.slice(0, 20)}
+                        </span>
+                        {title.length > 20 && <span>
+                            ...
+                        </span>}
                     </div>
-                    // ))}
-                )
+
+                    <div className='card_desc'>
+                        <span>{description.slice(0, 30)}</span>{description.length > 30 && <span>...</span>}
+                    </div>
+
+                    <hr />
+
+                    <div className='card_content'>
+                        <span>{extractHTMLContent(content).slice(0, 250)}</span>{extractHTMLContent(content).length > 30 && <span>...</span>}
+                    </div>
+
+                    <button className='card_view_btn' onClick={() => togglePopup(id)}>view more ⮕</button>
+                </div>
+                // ))}
+                // )
             )
             )}
 

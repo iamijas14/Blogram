@@ -19,7 +19,6 @@ const CreateBlog = () => {
   const [{ }, dispatch] = useDatalayer()
 
   const confirmHandler = () => {
-    // isBlogData.isChecked && setPopup(!isPopup)
     {
       isBlogData.isChecked ? setPopup(!isPopup) : (
         setBlogData((item) => {
@@ -105,7 +104,7 @@ const CreateBlog = () => {
           <div className='char_length_indicator'>{isMaxCharLength}/2000</div>
         </div>
 
-        <div className=''>
+        <div>
           <input
             checked={isBlogData.isChecked}
             type='checkbox'
@@ -128,9 +127,9 @@ const CreateBlog = () => {
               <div className='pop_up_container'>
                 <p>Are you sure, you want to Publish this blog</p>
 
-                <div className='btn_popup'>
-                  <button className='popup_btn' onClick={createBlogHandler}>Yes</button>
-                  <button className='popup_btn' onClick={cancelPopUpHandler}>Cancel</button>
+                <div className='popup_btn'>
+                  <button className='popup_btn_1' onClick={createBlogHandler}>Yes</button>
+                  <button className='popup_btn_2' onClick={cancelPopUpHandler}>Cancel</button>
                 </div>
 
               </div>

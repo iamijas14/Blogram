@@ -51,6 +51,7 @@ body {
     outline-width: 0;
 }
 
+/* overriding quill editor css */
 .ql-editor {
     height: 250px !important;
 }
@@ -92,11 +93,12 @@ body {
     box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.43);
 }
 
-.btn_popup {
+.popup_btn {
     text-align: center;
 }
 
-.popup_btn {
+.popup_btn_1,
+.popup_btn_2 {
     text-align: center;
     margin-left: 5px;
     padding: 5px 10px;
@@ -164,7 +166,7 @@ body {
     transform: scale(1.1);
 }
 
-/* Blog section */
+/* Blog display section */
 .blog_container {
     position: fixed;
     top: 0;
